@@ -22,19 +22,18 @@ function AdminPortal() {
         </div>
       </Typography>
       <Router>
-        <nav align="center"
+      <nav align="center"
             style={{
               border: "5px solid",
               borderColor: "pink",
+              backgroundColor: "pink",
               padding: "12px 60px",
               fontSize: "20px",
-              color: "pink",
-            }}
-          >
-            <Link to="/dashboard"> Dashboard </Link>
-            <Link to="/all-customers"> Customers </Link>
-            <Link to="/all-orders"> Orders </Link>
-            <Link to="/all-quotes"> Quotes </Link>
+            }}>
+            <Link to="/dashboard" style={{ textDecoration: 'none', color: 'white', padding: "12px"}}> Dashboard </Link>
+            <Link to="/all-customers" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Customers </Link>
+            <Link to="/all-orders" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Orders </Link>
+            <Link to="/all-quotes" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Quotes </Link>
         </nav>
         <br></br>
         <Routes>
