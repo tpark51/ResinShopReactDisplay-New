@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container } from '@mui/material';
+import ViewOneCustomer from './ViewOneCustomer';
 
-const CustomerEditForm = () => {
+const CustomerEditForm = (props) => {
     
     function handleFinder(e){
         e.preventDefault();
@@ -53,6 +54,7 @@ const CustomerEditForm = () => {
             }
             else{
                 alert("Successfully updated customer " + document.getElementById("customerId").value)
+
             }
 
         })

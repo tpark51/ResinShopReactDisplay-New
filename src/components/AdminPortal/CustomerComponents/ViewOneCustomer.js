@@ -25,6 +25,9 @@ function ViewOneCustomer() {
   const openEditDisplay = () => {
     setEditDisplay(true);
   };
+  const closeEditDisplay = () => {
+    setEditDisplay(false);
+  };
   const openDeleteDisplay = () => {
     setDeleteDisplay(true);
   };
