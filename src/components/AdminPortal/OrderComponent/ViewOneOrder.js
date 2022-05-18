@@ -51,7 +51,10 @@ function ViewOneQuote() {
               size="small"
               variant="outlined"
               onClick={openDeleteDisplay}
-            >
+              style={{
+                borderColor: "pink",
+                color: "pink"
+              }}>
               Delete Order
             </NewButton>
             <NewButton
