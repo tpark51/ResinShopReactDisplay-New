@@ -11,27 +11,53 @@ const largeOrderColumns = [
     field: "orderId",
     headerName: "Order Id",
     headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
     renderCell: (rowData) => (
       <Link href={`http://localhost:3000/view-order/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
-    width: 75,
   },
   {
     field: "artId",
     headerName: "Artwork Id",
     headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
     renderCell: (rowData) => (
       <Link href={`http://localhost:3000/view-artwork/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
-    width: 85,
   },
-  { field: "firstName", headerName: "First Name", headerAlign: "center" },
-  { field: "lastName", headerName: "Last Name", headerAlign: "center" },
-  { field: "cost", headerName: "Cost", headerAlign: "center", width: 90 },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "lastName",
+    headerName: "Last Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "cost",
+    headerName: "Cost",
+    headerAlign: "center",
+    width: 90,
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
 ];
 
 const largeArtColumns = [
@@ -39,17 +65,47 @@ const largeArtColumns = [
     field: "artId",
     headerName: "Artwork Id",
     headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
     renderCell: (rowData) => (
       <Link href={`http://localhost:3000/view-artwork/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
-    width: 85,
   },
-  { field: "firstName", headerName: "First Name", headerAlign: "center" },
-  { field: "lastName", headerName: "Last Name", headerAlign: "center" },
-  { field: "height", headerName: "Height", headerAlign: "center" },
-  { field: "width", headerName: "Width", headerAlign: "center", width: 90 },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "lastName",
+    headerName: "Last Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "height",
+    headerName: "Height",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "width",
+    headerName: "Width",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
 ];
 
 function ViewDashboards() {
@@ -70,44 +126,43 @@ function ViewDashboards() {
 
   return (
     <Container spacing={10}>
-    <div style={{ height: 500, width: "100%" }}>
-    <Typography gutterBottom variant="h4" align="center">
-        Dashboard
-      </Typography>
-      <Grid container direction="row" spacing={2}>
-        <Grid item xs>
-          <div>
-            <div align="left" style={{ height: 500, width: "100%" }}>
-            <Typography gutterBottom variant="h5" align="center">
-        Orders Over $5000
-      </Typography>
-              <DataGrid
-                getRowId={(row) => row.orderId}
-                rows={tableData}
-                columns={largeOrderColumns}
-                pageSize={100}
-              />
+      <div style={{ height: 500, width: "100%" }}>
+        <Typography gutterBottom variant="h4" align="center">
+          Dashboard
+        </Typography>
+        <Grid container direction="row" spacing={2}>
+          <Grid item xs>
+            <div>
+              <div align="left" style={{ height: 500, width: "100%" }}>
+                <Typography gutterBottom variant="h5" align="center">
+                  Orders Over $5000
+                </Typography>
+                <DataGrid
+                  getRowId={(row) => row.orderId}
+                  rows={tableData}
+                  columns={largeOrderColumns}
+                  pageSize={100}
+                />
+              </div>
             </div>
-          </div>
-        </Grid>
-        <Grid item xs>
-          <div>
-            <div style={{ height: 500, width: "100%" }}>
-            <Typography gutterBottom variant="h5" align="center">
-        Large Art Pieces
-      </Typography>
-              <DataGrid
-                getRowId={(row) => row.artId}
-                rows={largeArtData}
-                columns={largeArtColumns}
-                pageSize={100}
-              />
+          </Grid>
+          <Grid item xs>
+            <div>
+              <div style={{ height: 500, width: "100%" }}>
+                <Typography gutterBottom variant="h5" align="center">
+                  Large Art Pieces
+                </Typography>
+                <DataGrid
+                  getRowId={(row) => row.artId}
+                  rows={largeArtData}
+                  columns={largeArtColumns}
+                  pageSize={100}
+                />
+              </div>
             </div>
-          </div>
+          </Grid>
         </Grid>
-        </Grid>
-        
-    </div>
+      </div>
     </Container>
   );
 }

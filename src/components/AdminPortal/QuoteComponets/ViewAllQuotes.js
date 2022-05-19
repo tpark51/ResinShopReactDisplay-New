@@ -13,27 +13,40 @@ const columns = [
     headerName: "Artwork Id",
     width: 125,
     headerAlign: "center",
+    align: 'center',
+  minWidth: 90,
+  flex: 1,
+
     renderCell: (rowData) => (
       <Link href={`http://localhost:3000/view-artwork/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
   },
-  { field: "height", headerName: "Height", headerAlign: "center" },
-  { field: "width", headerName: "Width", headerAlign: "center" },
+  { field: "height", headerName: "Height", headerAlign: "center", align: 'center',   minWidth: 90,
+  flex: 1, },
+  { field: "width", headerName: "Width", headerAlign: "center", align: 'center',   minWidth: 90,
+  flex: 1, },
   {
     field: "colorQuantity",
     headerName: "Color Quantity",
     width: 125,
-    headerAlign: "center",
+    headerAlign: "center", 
+    align: 'center',
+    minWidth: 90,
+    flex: 1,
   },
   {
     field: "materialQuantity",
     headerName: "Material Quantity",
     width: 150,
     headerAlign: "center",
+    align: 'center',
+    minWidth: 90,
+    flex: 1,
   },
-  { field: "cost", headerName: "Cost", headerAlign: "center" },
+  { field: "cost", headerName: "Cost", headerAlign: "center", align: 'center',   minWidth: 90,
+  flex: 1,},
 ];
 
 function ViewAllQuotes() {
@@ -54,6 +67,9 @@ function ViewAllQuotes() {
     <div>
       <div style={{ height: 700, width: "95%" }}>
       <div align="right">
+      <Typography gutterBottom variant="h4" align="center">
+        Artwork
+      </Typography>
         <NewButton size="small" variant="contained" onClick={openAddDisplay}
                   style={{
                     backgroundColor: "pink",
@@ -69,10 +85,7 @@ function ViewAllQuotes() {
         </Popup>
       </div>
       <br></br>
-      <Typography gutterBottom variant="h4" align="center">
-        Artwork
-      </Typography>
-        <DataGrid
+        <DataGrid 
           getRowId={(row) => row.artId}
           rows={tableData}
           columns={columns}

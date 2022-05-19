@@ -6,25 +6,71 @@ import { Link } from "@mui/material";
 import OrderAddForm from "./OrderAddForm";
 import Popup from "../../Layouts/Popup";
 import NewButton from "../../FormControls/Button";
-import { Container, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const columns = [
   {
     field: "orderId",
     headerName: "OrderId",
     headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
     renderCell: (rowData) => (
       <Link href={`http://localhost:3000/view-order/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
   },
-  { field: "orderDate", headerName: "Order Date", headerAlign: "center" },
-  { field: "firstName", headerName: "First Name", headerAlign: "center" },
-  { field: "lastName", headerName: "Last Name", headerAlign: "center" },
-  { field: "height", headerName: "Height", headerAlign: "center" },
-  { field: "width", headerName: "Width", headerAlign: "center" },
-  { field: "cost", headerName: "Cost", headerAlign: "center" },
+  {
+    field: "orderDate",
+    headerName: "Order Date",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "lastName",
+    headerName: "Last Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "height",
+    headerName: "Height",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "width",
+    headerName: "Width",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "cost",
+    headerName: "Cost",
+    type: "decimal",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
 ];
 
 function ViewAllOrders() {
@@ -44,6 +90,9 @@ function ViewAllOrders() {
   return (
     <div style={{ height: 700, width: "100%", align: "center" }}>
       <div align="right">
+        <Typography gutterBottom variant="h4" align="center">
+          Orders
+        </Typography>
         <NewButton
           size="small"
           variant="contained"
@@ -63,9 +112,6 @@ function ViewAllOrders() {
         </Popup>
       </div>
       <br></br>
-      <Typography gutterBottom variant="h4" align="center">
-        Orders
-      </Typography>
       <DataGrid
         getRowId={(row) => row.orderId}
         rows={tableData}

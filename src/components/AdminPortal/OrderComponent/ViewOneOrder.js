@@ -55,7 +55,7 @@ function ViewOneOrder() {
                 borderColor: "pink",
                 color: "pink"
               }}>
-              Delete Artwork
+              Delete Order
             </NewButton>
             <NewButton
               size="small"
@@ -65,20 +65,20 @@ function ViewOneOrder() {
                 backgroundColor: "pink",
               }}
             >
-              Edit Artwork
+              Edit Order
             </NewButton>
           </CardContent>
         </Card>
       </div>
       <Popup
-        title="Edit Artwork"
+        title="Edit Order"
         openPopup={editDisplay}
         setOpenPopup={setEditDisplay}
       >
         <OrderEditForm />
       </Popup>
       <Popup
-        title="Delete Artwork"
+        title="Delete Order"
         openPopup={deleteDisplay}
         setOpenPopup={setDeleteDisplay}
       >

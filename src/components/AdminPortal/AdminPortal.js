@@ -10,7 +10,7 @@ import ViewDashboards from "./Dashboard/ViewDashboards";
 
 function AdminPortal() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" align="center">
       <Typography gutterBottom variant="h2" align="center">
         <div
           style={{
@@ -41,6 +41,7 @@ function AdminPortal() {
           <Route path="/all-orders" element={<ViewAllOrders />} />
           <Route path="/all-artwork" element={<ViewAllQuotes />} />
 
+          <Route path="/" element={<ViewDashboards />} />
           <Route path="view-customer">
             <Route path=":id" element={<ViewOneCustomer />} />
           </Route>

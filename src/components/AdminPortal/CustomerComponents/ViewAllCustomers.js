@@ -13,20 +13,79 @@ const columns = [
     field: "customerId",
     headerName: "CustomerId",
     headerAlign: "center",
+    align: "center",
+    minWidth: 50,
+    flex: 1,
     renderCell: (rowData) => (
       <Link href={`http://localhost:3000/view-customer/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
   },
-  { field: "firstName", headerName: "First Name", headerAlign: "center" },
-  { field: "lastName", headerName: "Last Name", headerAlign: "center" },
-  { field: "email", headerName: "Email", headerAlign: "center" },
-  { field: "phoneNumber", headerName: "Phone", headerAlign: "center" },
-  { field: "streetAddress", headerName: "Address", headerAlign: "center" },
-  { field: "city", headerName: "City", headerAlign: "center" },
-  { field: "stateName", headerName: "State", headerAlign: "center" },
-  { field: "zipCode", headerName: "ZipCode", headerAlign: "center" },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "lastName",
+    headerName: "Last Name",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "phoneNumber",
+    headerName: "Phone",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "streetAddress",
+    headerName: "Address",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 105,
+    flex: 1,
+  },
+  {
+    field: "city",
+    headerName: "City",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "stateName",
+    headerName: "State",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 75,
+    flex: 1,
+  },
+  {
+    field: "zipCode",
+    headerName: "ZipCode",
+    headerAlign: "center",
+    align: "center",
+    minWidth: 90,
+    flex: 1,
+  },
 ];
 
 function ViewAllCustomers() {
@@ -44,12 +103,22 @@ function ViewAllCustomers() {
   });
 
   return (
-    <div style={{ height: 700, width: "95%", alignItems: "center"}} align="center">
+    <div
+      style={{ height: 700, width: "95%", alignItems: "center" }}
+      align="center"
+    >
       <div align="right">
-        <NewButton size="small" variant="contained" onClick={openAddDisplay}
-                  style={{
-                    backgroundColor: "pink",
-                  }}>
+        <Typography gutterBottom variant="h4" align="center">
+          Customers
+        </Typography>
+        <NewButton
+          size="small"
+          variant="contained"
+          onClick={openAddDisplay}
+          style={{
+            backgroundColor: "pink",
+          }}
+        >
           Add Customer
         </NewButton>
         <Popup
@@ -61,9 +130,6 @@ function ViewAllCustomers() {
         </Popup>
       </div>
       <br></br>
-      <Typography gutterBottom variant="h4" align="center">
-        Customers
-      </Typography>
       <DataGrid
         getRowId={(row) => row.customerId}
         rows={tableData}
