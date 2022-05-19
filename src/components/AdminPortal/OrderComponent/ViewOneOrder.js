@@ -51,16 +51,11 @@ function ViewOneOrder() {
               size="small"
               variant="outlined"
               onClick={openDeleteDisplay}
-<<<<<<< HEAD
-            >
-              Delete Artwork
-=======
               style={{
                 borderColor: "pink",
                 color: "pink"
               }}>
-              Delete Order
->>>>>>> 56643f78fe76e054f1c0bc00f39e245cfffed5c1
+              Delete Artwork
             </NewButton>
             <NewButton
               size="small"
