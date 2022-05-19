@@ -36,7 +36,7 @@ function ViewOneQuote() {
           <CardContent>
             <Grid container>
               <Grid item xs={6}>
-                <p>ArtWork Id: {view.artId}</p>
+                <p>Artwork Id: {view.artId}</p>
               </Grid>
               <Grid item xs={6}>
                 <p>Total: ${view.cost}</p>

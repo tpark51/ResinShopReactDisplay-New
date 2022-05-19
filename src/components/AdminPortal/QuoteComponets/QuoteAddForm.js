@@ -54,7 +54,7 @@ const QuoteAddForm = () => {
         <br></br>
         <label>AdvancedFeatureId: </label>
         <input type="number" id="AdvancedFeatureId" /> <br></br>
-        <input type="submit" value="Add Quote" />
+        <input type="submit" value="Add Artwork" />
       </form>
     </>
   );

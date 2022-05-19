@@ -10,7 +10,7 @@ import NewButton from "../../FormControls/Button";
 const columns = [
   {
     field: "artId",
-    headerName: "Quote Number",
+    headerName: "Artwork Id",
     width: 125,
     headerAlign: "center",
     renderCell: (rowData) => (
@@ -58,10 +58,10 @@ function ViewAllQuotes() {
                   style={{
                     backgroundColor: "pink",
                   }}>
-          Add Quote
+          Add Artwork
         </NewButton>
         <Popup
-          title="Add Quote"
+          title="Add Artwork"
           openPopup={addDisplay}
           setOpenPopup={setAddDisplay}
         >
