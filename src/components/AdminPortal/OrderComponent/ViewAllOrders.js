@@ -6,6 +6,7 @@ import { Link } from "@mui/material";
 import OrderAddForm from "./OrderAddForm";
 import Popup from "../../Layouts/Popup";
 import NewButton from "../../FormControls/Button";
+import { Container, Typography } from "@mui/material";
 
 const columns = [
   {
@@ -62,6 +63,9 @@ function ViewAllOrders() {
         </Popup>
       </div>
       <br></br>
+      <Typography gutterBottom variant="h4" align="center">
+        Orders
+      </Typography>
       <DataGrid
         getRowId={(row) => row.orderId}
         rows={tableData}

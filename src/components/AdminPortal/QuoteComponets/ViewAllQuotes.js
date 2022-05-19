@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import QuoteAddForm from "./QuoteAddForm";
 import Popup from "../../Layouts/Popup";
 import NewButton from "../../FormControls/Button";
@@ -69,6 +69,9 @@ function ViewAllQuotes() {
         </Popup>
       </div>
       <br></br>
+      <Typography gutterBottom variant="h4" align="center">
+        Artwork
+      </Typography>
         <DataGrid
           getRowId={(row) => row.artId}
           rows={tableData}
