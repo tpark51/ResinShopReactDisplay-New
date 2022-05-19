@@ -48,6 +48,10 @@ function ViewOneCustomer() {
                 size="small"
                 variant="outlined"
                 onClick={openDeleteDisplay}
+                style={{
+                  borderColor: "pink",
+                  color: "pink"
+                }}
               >
                 Delete Customer
               </NewButton>
