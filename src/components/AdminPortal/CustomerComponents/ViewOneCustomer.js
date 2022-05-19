@@ -80,7 +80,7 @@ function ViewOneCustomer() {
           openPopup={editDisplay}
           setOpenPopup={setEditDisplay}
         >
-          <CustomerEditForm />
+          <CustomerEditForm customer={view} />
         </Popup>
       </Container>
     </>
