@@ -14,7 +14,7 @@ const columns = [
     width: 125,
     headerAlign: "center",
     renderCell: (rowData) => (
-      <Link href={`http://localhost:3000/view-quote/${rowData.id}`}>
+      <Link href={`http://localhost:3000/view-artwork/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),

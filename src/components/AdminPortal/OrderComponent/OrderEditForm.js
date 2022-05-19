@@ -56,7 +56,6 @@ const OrderEditForm = () => {
     <form name = "update-order" onSubmit = {handleFinder}>
         <label>Order ID: </label>
         <input type= "number" id="orderId"></input>
-        <input type="submit" value="Find"></input>
     </form>
     <form name = "update-order" onSubmit = {handleFiller}>
     <label>Order Date: </label>

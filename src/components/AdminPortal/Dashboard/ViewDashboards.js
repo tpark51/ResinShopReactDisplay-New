@@ -20,14 +20,14 @@ const largeOrderColumns = [
   },
   {
     field: "artId",
-    headerName: "Quote Id",
+    headerName: "Artwork Id",
     headerAlign: "center",
     renderCell: (rowData) => (
-      <Link href={`http://localhost:3000/view-quote/${rowData.id}`}>
+      <Link href={`http://localhost:3000/view-artwork/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
-    width: 75,
+    width: 85,
   },
   { field: "firstName", headerName: "First Name", headerAlign: "center" },
   { field: "lastName", headerName: "Last Name", headerAlign: "center" },
@@ -37,14 +37,14 @@ const largeOrderColumns = [
 const largeArtColumns = [
   {
     field: "artId",
-    headerName: "Quote Id",
+    headerName: "Artwork Id",
     headerAlign: "center",
     renderCell: (rowData) => (
-      <Link href={`http://localhost:3000/view-quote/${rowData.id}`}>
+      <Link href={`http://localhost:3000/view-artwork/${rowData.id}`}>
         {rowData.id}
       </Link>
     ),
-    width: 75,
+    width: 85,
   },
   { field: "firstName", headerName: "First Name", headerAlign: "center" },
   { field: "lastName", headerName: "Last Name", headerAlign: "center" },
@@ -92,9 +92,9 @@ function ViewDashboards() {
         </Grid>
         <Grid item xs>
           <div>
-            <div style={{ height: 500, width: "120%" }}>
+            <div style={{ height: 500, width: "100%" }}>
             <Typography gutterBottom variant="h5" align="center">
-        Large Pieces
+        Large Art Pieces
       </Typography>
               <DataGrid
                 getRowId={(row) => row.artId}

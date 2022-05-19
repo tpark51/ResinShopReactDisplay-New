@@ -6,6 +6,7 @@ import { Link } from "@mui/material";
 import NewButton from "../../FormControls/Button";
 import CustomerAddForm from "./CustomerAddForm";
 import Popup from "../../Layouts/Popup";
+import { Container } from "@mui/material";
 
 const columns = [
   {
@@ -43,7 +44,7 @@ function ViewAllCustomers() {
   });
 
   return (
-    <div style={{ height: 700, width: "100%" }}>
+    <div style={{ height: 700, width: "95%", alignItems: "center"}} align="center">
       <div align="right">
         <NewButton size="small" variant="contained" onClick={openAddDisplay}
                   style={{

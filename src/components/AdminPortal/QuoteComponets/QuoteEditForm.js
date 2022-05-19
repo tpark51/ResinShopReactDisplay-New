@@ -58,9 +58,8 @@ const QuoteEditForm = () => {
   return (
     <div>
     <form name = "update-form-1" onSubmit = {handleFinder}>
-        <label>Art ID: </label>
+        <label>Artwork ID: </label>
         <input type= "number" id="artId"></input>
-        <input type="submit" value="Find"></input>
     </form>
     <form name = "update-form-2" onSubmit = {handleFiller}>
     <label>Height (inches): </label>
@@ -75,7 +74,7 @@ const QuoteEditForm = () => {
       <input type="number" step="0.01" id="Cost"/><br></br>
       <label>AdvancedFeatureId: </label>
       <input type = "number" id = "AdvancedFeatureId" /> <br></br>
-      <input type="submit" value="Update Quote" />
+      <input type="submit" value="Update Artwork" />
     </form>
     </div>
   )

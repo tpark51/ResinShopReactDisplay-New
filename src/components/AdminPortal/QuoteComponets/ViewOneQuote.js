@@ -36,7 +36,7 @@ function ViewOneQuote() {
           <CardContent>
             <Grid container>
               <Grid item xs={6}>
-                <p>Quote Number: {view.artId}</p>
+                <p>ArtWork Id: {view.artId}</p>
               </Grid>
               <Grid item xs={6}>
                 <p>Total: ${view.cost}</p>
@@ -54,7 +54,7 @@ function ViewOneQuote() {
               variant="outlined"
               onClick={openDeleteDisplay}
             >
-              Delete Quote
+              Delete Artwork
             </NewButton>
             <NewButton
               size="small"
@@ -64,20 +64,20 @@ function ViewOneQuote() {
                 backgroundColor: "pink",
               }}
             >
-              Edit Quote
+              Edit Artwork
             </NewButton>
           </CardContent>
         </Card>
       </div>
       <Popup
-        title="Edit Quote"
+        title="Edit Artwork"
         openPopup={editDisplay}
         setOpenPopup={setEditDisplay}
       >
         <QuoteEditForm />
       </Popup>
       <Popup
-        title="Delete Quote"
+        title="Delete Artwork"
         openPopup={deleteDisplay}
         setOpenPopup={setDeleteDisplay}
       >

@@ -6,12 +6,11 @@ import ViewAllQuotes from "./QuoteComponets/ViewAllQuotes";
 import ViewOneCustomer from "./CustomerComponents/ViewOneCustomer";
 import ViewOneOrder from "./OrderComponent/ViewOneOrder";
 import ViewOneQuote from "./QuoteComponets/ViewOneQuote";
-import ViewDashboard from "./Dashboard/ViewDashboard";
 import ViewDashboards from "./Dashboard/ViewDashboards";
 
 function AdminPortal() {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="lg">
       <Typography gutterBottom variant="h2" align="center">
         <div
           style={{
@@ -33,14 +32,14 @@ function AdminPortal() {
             <Link to="/dashboard" style={{ textDecoration: 'none', color: 'white', padding: "12px"}}> Dashboard </Link>
             <Link to="/all-customers" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Customers </Link>
             <Link to="/all-orders" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Orders </Link>
-            <Link to="/all-quotes" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Quotes </Link>
+            <Link to="/all-artwork" style={{ textDecoration: 'none', color: 'white', padding: "12px" }}> Artwork </Link>
         </nav>
         <br></br>
         <Routes>
           <Route path="/dashboard" element={<ViewDashboards />} />
           <Route path="/all-customers" element={<ViewAllCustomers />} />
           <Route path="/all-orders" element={<ViewAllOrders />} />
-          <Route path="/all-quotes" element={<ViewAllQuotes />} />
+          <Route path="/all-artwork" element={<ViewAllQuotes />} />
 
           <Route path="view-customer">
             <Route path=":id" element={<ViewOneCustomer />} />
@@ -48,7 +47,7 @@ function AdminPortal() {
           <Route path="view-order">
             <Route path=":id" element={<ViewOneOrder />} />
           </Route>
-          <Route path="view-quote">
+          <Route path="view-artwork">
             <Route path=":id" element={<ViewOneQuote />} />
           </Route>
         </Routes>

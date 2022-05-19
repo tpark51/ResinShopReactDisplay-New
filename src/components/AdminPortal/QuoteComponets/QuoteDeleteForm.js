@@ -27,7 +27,7 @@ const QuoteDeleteForm = () => {
   return (
     <>
     <form name="delete-form" onSubmit = {handleSubmit}>
-        <label>Art ID: </label>
+        <label>Artwork ID: </label>
         <input type="number" id = "artId"></input>
         <input type="submit" value="Delete" />
     </form>

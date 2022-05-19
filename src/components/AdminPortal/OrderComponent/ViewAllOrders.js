@@ -19,8 +19,11 @@ const columns = [
     ),
   },
   { field: "orderDate", headerName: "Order Date", headerAlign: "center" },
-  { field: "artId", headerName: "ArtId", headerAlign: "center" },
-  { field: "customerId", headerName: "CustomerId", headerAlign: "center" },
+  { field: "firstName", headerName: "First Name", headerAlign: "center" },
+  { field: "lastName", headerName: "Last Name", headerAlign: "center" },
+  { field: "height", headerName: "Height", headerAlign: "center" },
+  { field: "width", headerName: "Width", headerAlign: "center" },
+  { field: "cost", headerName: "Cost", headerAlign: "center" },
 ];
 
 function ViewAllOrders() {
@@ -32,7 +35,7 @@ function ViewAllOrders() {
   };
 
   useEffect(() => {
-    fetch("https://localhost:7143/api/order")
+    fetch("https://localhost:7143/api/reports/orderdisplay")
       .then((data) => data.json())
       .then((data) => setTableData(data));
   });
@@ -60,7 +63,7 @@ function ViewAllOrders() {
       </div>
       <br></br>
       <DataGrid
-        getRowId={(row) => row.customerId}
+        getRowId={(row) => row.orderId}
         rows={tableData}
         columns={columns}
         pageSize={100}

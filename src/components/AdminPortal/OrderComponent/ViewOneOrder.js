@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import OrderEditForm from "./OrderEditForm";
 import OrderDeleteForm from "./OrderDeleteForm";
 
-function ViewOneQuote() {
+function ViewOneOrder() {
   let { id } = useParams();
 
   const [view, setView] = useState([]);
@@ -36,47 +36,46 @@ function ViewOneQuote() {
           <CardContent>
             <Grid container>
               <Grid item xs={6}>
-                <p>Order Number: {view.orderId}</p>
+                <p>Order Id: {view.artId}</p>
               </Grid>
               <Grid item xs={6}>
                 <p>Date: {view.orderDate}</p>
               </Grid>
             </Grid>
             <p>
-              QuoteId: {view.artId}
+              CustomerId: {view.customerId}
             </p>
-            <p>CustomerId: {view.customerId}</p>
+            <p>ArtworkId: {view.artId}</p>
             <br></br>
             <NewButton
               size="small"
               variant="outlined"
               onClick={openDeleteDisplay}
             >
-              Delete Order
+              Delete Artwork
             </NewButton>
             <NewButton
               size="small"
               variant="contained"
               onClick={openEditDisplay}
-              
               style={{
                 backgroundColor: "pink",
               }}
             >
-              Edit Order
+              Edit Artwork
             </NewButton>
           </CardContent>
         </Card>
       </div>
       <Popup
-        title="Edit Order"
+        title="Edit Artwork"
         openPopup={editDisplay}
         setOpenPopup={setEditDisplay}
       >
         <OrderEditForm />
       </Popup>
       <Popup
-        title="Delete Order"
+        title="Delete Artwork"
         openPopup={deleteDisplay}
         setOpenPopup={setDeleteDisplay}
       >
@@ -86,4 +85,4 @@ function ViewOneQuote() {
   );
 }
 
-export default ViewOneQuote;
+export default ViewOneOrder;

@@ -66,7 +66,6 @@ const CustomerEditForm = (props) => {
     <form name = "update-form-2" onSubmit = {handleFinder}>
         <label>Customer ID: </label>
         <input type= "number" id="customerId"></input>
-        <input type="submit" value="Find"></input>
     </form>
 
     <form name = "update-form-2" onSubmit = {handleFiller}>
