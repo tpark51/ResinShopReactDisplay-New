@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const OrderDeleteForm = () => {
+const OrderDeleteForm = ({ order}) => {
+    const [deleteOrder, setDeleteOrder] = useState(order);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -22,13 +23,17 @@ const OrderDeleteForm = () => {
                 alert("Order " + document.getElementById("orderId").value + " Successfuly deleted.");
             }
         })
+        window.location = `http://localhost:3000/all-orders`;
     }
 
   return (
     <>
     <form name="delete-order" onSubmit = {handleSubmit}>
         <label>Order ID: </label>
-        <input type="number" id = "orderId"></input>
+        <input type="number" id = "orderId"
+        readOnly={true}
+        value={deleteOrder.orderId}></input>
+        <p> Are you sure you want to delete Order {deleteOrder.orderId}?</p>
         <input type="submit" value="Delete" />
     </form>
     </>

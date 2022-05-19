@@ -38,6 +38,7 @@ const CustomerAddForm = () => {
         .then(json=>{
             alert("Successfully added new customer with ID of " + json.customerId)
         })
+        window.location = `http://localhost:3000/all-customers`;
     }
 
   return (

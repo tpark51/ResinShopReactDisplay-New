@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const QuoteEditForm = () => {
-
+const QuoteEditForm = ({ art }) => {
+    const [editArt, setEditArt] = useState(art);
     function handleFinder(e){
         e.preventDefault();
         fetch("https://localhost:7143/api/art/" + document.getElementById("artId").value)
@@ -23,13 +23,13 @@ const QuoteEditForm = () => {
         e.preventDefault();
 
         let art = {
-            ArtId: document.getElementById("artId").value,
-            Height: document.getElementById("Height").value,
-            Width: document.getElementById("Width").value,
-            MaterialQuantity: document.getElementById("MaterialQuantity").value,
-            ColorQuantity: document.getElementById("ColorQuantity").value,
-            Cost: document.getElementById("Cost").value,
-            AdvancedFeatureId: document.getElementById("AdvancedFeatureId").value
+            ArtId: editArt.artId,
+            Height: editArt.height,
+            Width: editArt.width,
+            MaterialQuantity: editArt.materialQuantity,
+            ColorQuantity: editArt.colorQuantity,
+            Cost: editArt.cost,
+            AdvancedFeatureId: editArt.advancedFeatureId,
         }
 
         const url = "https://localhost:7143/api/art";
@@ -51,29 +51,58 @@ const QuoteEditForm = () => {
             else{
                 alert("Successfully updated art " + document.getElementById("artId").value)
             }
-
         })
+        window.location = `http://localhost:3000/view-artwork/${editArt.artId}`;
     }
 
   return (
     <div>
-    <form name = "update-form-1" onSubmit = {handleFinder}>
+    <form name = "update-form-1" onSubmit = {handleFiller}>
+    <div style={{display:'flex', alignContent:'space-between'}}>
         <label>Artwork ID: </label>
-        <input type= "number" id="artId"></input>
-    </form>
-    <form name = "update-form-2" onSubmit = {handleFiller}>
-    <label>Height (inches): </label>
-      <input type="text" name="Height" id="Height"/><br></br>
+        <input type= "number" id="artId" readOnly={true}
+          value={editArt.artId}></input>
+        </div>
+        <div style={{display:'flex', alignContent:'space-between'}}>
+        <label>Height (inches): </label>
+      <input type="text" name="Height" id="Height"
+        value={editArt.height}
+          onChange={(e) => {
+            setEditArt({ ...editArt, height: e.target.value });
+          }}/></div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
       <label>Width (inches): </label>
-      <input type="text" name="Width" id="Width"/><br></br>
+      <input type="text" name="Width" id="Width"
+        value={editArt.width}
+          onChange={(e) => {
+            setEditArt({ ...editArt, width: e.target.value });
+          }}/></div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
       <label>MaterialQuantity: </label>
-      <input type = "number" id = "MaterialQuantity" /> <br></br>
+      <input type = "number" id = "MaterialQuantity" 
+      value={editArt.materialQuantity}
+      onChange={(e) => {
+        setEditArt({ ...editArt, materialQuantity: e.target.value });
+      }}/></div>
+      <div style={{display:'flex', alignContent:'space-between'}}>
       <label>ColorQuantity: </label>
-      <input type="number" step="1" id="ColorQuantity" /> <br></br>
+      <input type="number" step="1" id="ColorQuantity" 
+      value={editArt.colorQuantity}
+      onChange={(e) => {
+        setEditArt({ ...editArt, colorQuantity: e.target.value });
+      }}/></div>
+      <div style={{display:'flex', alignContent:'space-between'}}>
       <label>Cost: </label>
-      <input type="number" step="0.01" id="Cost"/><br></br>
+      <input type="number" step="0.01" id="Cost"
+      value={editArt.cost}
+      onChange={(e) => {
+        setEditArt({ ...editArt, cost: e.target.value });
+      }}/></div>
+      <div style={{display:'flex', alignContent:'space-between'}}>
       <label>AdvancedFeatureId: </label>
-      <input type = "number" id = "AdvancedFeatureId" /> <br></br>
+      <input type = "number" id = "AdvancedFeatureId" readOnly={true}
+          value={editArt.advancedFeatureId}></input> 
+      </div>
       <input type="submit" value="Update Artwork" />
     </form>
     </div>

@@ -39,15 +39,15 @@ const CustomerEditForm = ({ customer }) => {
     e.preventDefault();
 
     let customer = {
-      CustomerId: document.getElementById("customerId").value,
+      CustomerId: editCustomer.customerId,
       FirstName: editCustomer.firstName,
-      LastName: document.getElementById("LastName").value,
-      Email: document.getElementById("Email").value,
-      StreetAddress: document.getElementById("StreetAddress").value,
-      City: document.getElementById("City").value,
-      StateName: document.getElementById("StateName").value,
-      ZipCode: document.getElementById("ZipCode").value,
-      PhoneNumber: document.getElementById("PhoneNumber").value,
+      LastName: editCustomer.lastName,
+      Email: editCustomer.email,
+      StreetAddress: editCustomer.streetAddress,
+      City: editCustomer.city,
+      StateName: editCustomer.stateName,
+      ZipCode: editCustomer.zipCode,
+      PhoneNumber: editCustomer.phoneNumber,
     };
 
     const url = "https://localhost:7143/api/customer";
@@ -74,47 +74,81 @@ const CustomerEditForm = ({ customer }) => {
         );
       }
     });
+    window.location = `http://localhost:3000/view-customer/${editCustomer.customerId}`;
   }
 
   return (
     <div align="center">
       <Container>
-        <form name="update-form-2" onSubmit={handleFinder}>
-          <label>Customer ID: </label>
-          <input type="number" id="customerId"></input>
-        </form>
-
         <form name="update-form-2" onSubmit={handleFiller}>
+        <div style={{display:'flex', alignContent:'space-between'}}>
+        <label>Customer ID: </label>
+          <input type="number" id="customerId" readOnly={true}
+          value={editCustomer.customerId}></input>
+          </div>
           <div style={{display:'flex', alignContent:'space-between'}}>
             <label>First: </label>
-            <input
-              type="text"
-              name="FirstName"
-              id="FirstName"
+            <input type="text" name="FirstName" id="FirstName"
               value={editCustomer.firstName}
               onChange={(e) => {
                 setEditCustomer({ ...editCustomer, firstName: e.target.value });
-              }}
-            />
-            
-          </div>
+              }}/>     
+              </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>Last: </label>
-          <input type="text" name="LastName" id="LastName" />
-          <br></br>
+          <input type="text" name="LastName" id="LastName" 
+          value={editCustomer.lastName}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, lastName: e.target.value });
+          }}/>
+          </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>Email: </label>
-          <input type="text" name="Email" id="Email" /> <br></br>
+          <input type="text" name="Email" id="Email" 
+          value={editCustomer.email}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, email: e.target.value });
+          }}/> 
+          </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>Address: </label>
-          <input type="text" name="StreetAddress" id="StreetAddress" />{" "}
-          <br></br>
+          <input type="text" name="StreetAddress" id="StreetAddress" 
+          value={editCustomer.streetAddress}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, streetAddress: e.target.value });
+          }}/>
+          </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>City: </label>
-          <input type="text" name="City" id="City" /> <br></br>
+          <input type="text" name="City" id="City" 
+          value={editCustomer.city}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, city: e.target.value });
+          }}/> 
+          </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>State: </label>
-          <input type="text" name="StateName" id="StateName" /> <br></br>
+          <input type="text" name="StateName" id="StateName" 
+          value={editCustomer.stateName}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, stateName: e.target.value });
+          }}/> </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>Zip Code: </label>
-          <input type="text" name="ZipCode" id="ZipCode" /> <br></br>
+          <input type="text" name="ZipCode" id="ZipCode" 
+          value={editCustomer.zipCode}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, zipCode: e.target.value });
+          }}/> </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
           <label>Phone: </label>
-          <input type="text" name="PhoneNumber" id="PhoneNumber" /> <br></br>
+          <input type="text" name="PhoneNumber" id="PhoneNumber" 
+          value={editCustomer.phoneNumber}
+          onChange={(e) => {
+            setEditCustomer({ ...editCustomer, phoneNumber: e.target.value });
+          }}/> </div>
           <input type="submit" value="Update Customer" />
+          
         </form>
       </Container>
     </div>

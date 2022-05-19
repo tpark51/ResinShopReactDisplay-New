@@ -34,6 +34,7 @@ const QuoteAddForm = () => {
       .then((json) => {
         alert("successfully added new art with ID of " + json.artId);
       });
+      window.location = `http://localhost:3000/all-artwork`;
   }
 
   return (

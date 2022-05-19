@@ -75,14 +75,14 @@ function ViewOneOrder() {
         openPopup={editDisplay}
         setOpenPopup={setEditDisplay}
       >
-        <OrderEditForm />
+        <OrderEditForm order={view}/>
       </Popup>
       <Popup
         title="Delete Order"
         openPopup={deleteDisplay}
         setOpenPopup={setDeleteDisplay}
       >
-        <OrderDeleteForm />
+        <OrderDeleteForm order={view}/>
       </Popup>
     </Container>
   );

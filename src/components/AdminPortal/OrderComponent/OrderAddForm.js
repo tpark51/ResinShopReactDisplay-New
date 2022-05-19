@@ -33,6 +33,7 @@ const OrderAddForm = () => {
         .then(json=>{
             alert("Successfully added new order with ID of " + json.orderId)
         })
+        window.location = `http://localhost:3000/all-orders`;
     }
 
   return (

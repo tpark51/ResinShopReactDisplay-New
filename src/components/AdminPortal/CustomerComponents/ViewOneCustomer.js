@@ -36,13 +36,14 @@ function ViewOneCustomer() {
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               <p>
-                First: {view.firstName} Last:{view.lastName}
+                First: {view.firstName} Last: {view.lastName}
               </p>
               <p>Email: {view.email}</p>
               <p>Address: {view.streetAddress}</p>
               <p>City: {view.city}</p>
               <p>State: {view.stateName}</p>
-              <p>ZipCode: {view.zipCode}</p>
+              <p>Zip Code: {view.zipCode}</p>
+              <p>Phone Number: {view.phoneNumber}</p>
               <br></br>
               <NewButton
                 size="small"
@@ -73,7 +74,7 @@ function ViewOneCustomer() {
           openPopup={deleteDisplay}
           setOpenPopup={setDeleteDisplay}
         >
-          <CustomerDeleteForm />
+          <CustomerDeleteForm customer={view}/>
         </Popup>
         <Popup
           title="Edit Customer"

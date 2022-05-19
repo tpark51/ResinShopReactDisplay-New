@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const OrderEditForm = () => {
+const OrderEditForm = ({ order }) => {
+    const [editOrder, setEditOrder] = useState(order);
 
     function handleFinder(e){
         e.preventDefault();
@@ -22,10 +23,10 @@ const OrderEditForm = () => {
         e.preventDefault();
 
         let order = {
-            orderId: document.getElementById("orderId").value,
-            orderDate: document.getElementById("orderDate").value,
-            CustomerId: document.getElementById("CustomerId").value,
-            ArtId: document.getElementById("ArtId").value
+            orderId: editOrder.orderId,
+            orderDate: editOrder.orderDate,
+            CustomerId: editOrder.customerId,
+            ArtId: editOrder.artId,
         }
 
         const url = "https://localhost:7143/api/order";
@@ -42,32 +43,46 @@ const OrderEditForm = () => {
         fetch(url, init)
         .then(response => {
             if (response.status !== 200){
+                response.json().then((t) => {
+                    console.log(t);
+                });
                 alert("error: " + response.status);
             }
             else{
                 alert("Successfully updated order " + document.getElementById("orderId").value)
             }
-
         })
+        window.location = `http://localhost:3000/view-order/${editOrder.orderId}`;
     }
 
   return (
     <div>
-    <form name = "update-order" onSubmit = {handleFinder}>
-        <label>Order ID: </label>
-        <input type= "number" id="orderId"></input>
-    </form>
     <form name = "update-order" onSubmit = {handleFiller}>
+    <div style={{display:'flex', alignContent:'space-between'}}>
+        <label>Order ID: </label>
+        <input type= "number" id="orderId" readOnly={true}
+          value={editOrder.orderId}></input>
+        </div>
+        <div style={{display:'flex', alignContent:'space-between'}}>
     <label>Order Date: </label>
-      <input type="text" name="orderDate" id="orderDate"/><br></br>
+      <input type="text" name="orderDate" id="orderDate" 
+          value={editOrder.orderDate}onChange={(e) => {
+            setEditOrder({ ...editOrder, orderDate: e.target.value });
+          }}/>
+          </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
       <label>CustomerId: </label>
-      <input type = "number" id = "CustomerId" /> <br></br>
+      <input type = "number" id = "CustomerId" readOnly={true}
+          value={editOrder.customerId}></input> </div>
+          <div style={{display:'flex', alignContent:'space-between'}}>
       <label>ArtId: </label>
-      <input type = "number" id = "ArtId" /> <br></br>
+      <input type = "number" id = "ArtId" readOnly={true}
+          value={editOrder.artId}></input> 
+      </div>
       <input type="submit" value="Update Order" /> 
     </form>
     </div>
-  )
-}
+  );
+};
 
 export default OrderEditForm;

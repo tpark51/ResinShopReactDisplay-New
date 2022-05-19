@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const QuoteDeleteForm = () => {
+const QuoteDeleteForm = ({ art }) => {
+    const [deleteArt, setDeleteArt] = useState(art);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -22,13 +23,16 @@ const QuoteDeleteForm = () => {
                 alert("Art " + document.getElementById("artId").value + " Successfuly deleted");
             }
         })
+        window.location = `http://localhost:3000/all-artwork`;
     }
 
   return (
     <>
     <form name="delete-form" onSubmit = {handleSubmit}>
         <label>Artwork ID: </label>
-        <input type="number" id = "artId"></input>
+        <input type="number" id = "artId" readOnly={true}
+        value={deleteArt.artId}></input>
+        <p> Are you sure you want to delete Artwork {deleteArt.artId}?</p>
         <input type="submit" value="Delete" />
     </form>
     </>

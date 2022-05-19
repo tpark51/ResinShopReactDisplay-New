@@ -74,14 +74,14 @@ function ViewOneQuote() {
         openPopup={editDisplay}
         setOpenPopup={setEditDisplay}
       >
-        <QuoteEditForm />
+        <QuoteEditForm art={view}/>
       </Popup>
       <Popup
         title="Delete Artwork"
         openPopup={deleteDisplay}
         setOpenPopup={setDeleteDisplay}
       >
-        <QuoteDeleteForm />
+        <QuoteDeleteForm art={view}/>
       </Popup>
     </Container>
   );
